@@ -1,6 +1,6 @@
 # Description
 
-This is an image resizing program written in Python. The original program was written for a seam carving project as part of an algorithms class at the University of Akron. 
+This is a PGM image resizing program written in Python. The original program was written for a seam carving project as part of an algorithms class at the University of Akron. 
 It uses the [seam carving](http://en.wikipedia.org/wiki/Seam_carving) algorithm to resize with minimal distortion.
 
 Tested and working with Python 3.4.2 on ArchLinux.
