@@ -34,7 +34,7 @@ def parsePGM(fn):
             else:
                 words.append(word)
     if words[0] != "P2":
-        print "Error: Bad header (P2 not found)"
+        print("Error: Bad header (P2 not found)")
     wPGM = int(words[1]) # width
     hPGM = int(words[2]) # height
     maxGrey = int(words[3]) # max value (white)
@@ -94,13 +94,11 @@ def calcSeam(pgmArray):
     j = numpy.argmin(energy[maxRow]) # returns column index of minimum value in last row (leftmost one in case of tie)
     seamCoords.append([maxRow, j]) # first pixel coordinate of seam 
         
-    ''' I just tried to figure out what this did a couple days after writing it and it was still hard to decypher, so here's more info:
-
-            prevj is the j-coordinate of the latest pixel in the seam that we know of (last entry in seamCoords)
+    '''     prevj is the j-coordinate of the latest pixel in the seam that we know of (last entry in seamCoords)
             since we're moving up the table based only on the i (row) in the for loop, we need to keep track of which column we're in
             once we determine the column, we get the energies of the upper 2 or 3 pixels and find the one with the minimum energy
             there's an array called pixAbove which has the three values of the pixels above_left, above_right, and above the last pixel in seamCoords
-            if we're on a boundary we use sys.maxint for the value of the missing pixel
+            if we're on a boundary we use float("inf") for the value of the missing pixel
             then we find the minimum energy in pixAbove and add its index-1 (resulting in -1, 0, or +1) to the j of the latest pixel in seamCoords to get the j of the next pixel to add to seamCoord
             the i for the next pixel to add is the i of the loop we're in.
     '''
@@ -108,9 +106,9 @@ def calcSeam(pgmArray):
         # pixAbove is an array of upper left, upper, and upper right pixel energies relative to the current pixel in the seam
         prevj = seamCoords[-1][1] # gets previous j coordinate
         if prevj == 0: # left column
-            pixAbove = [sys.maxint, energy[i, prevj], energy[i, prevj+1]] # options added to seam are [MAX, value(above), value(above_right)]
+            pixAbove = [float("inf"), energy[i, prevj], energy[i, prevj+1]] # options added to seam are [MAX, value(above), value(above_right)]
         elif prevj == maxCol: # right column
-            pixAbove = [energy[i, prevj-1], energy[i,prevj], sys.maxint] # options value added to seam are [value(above_left), value(above), MAX]
+            pixAbove = [energy[i, prevj-1], energy[i,prevj], float("inf")] # options value added to seam are [value(above_left), value(above), MAX]
         else: # in between
             pixAbove = [energy[i, prevj-1], energy[i,prevj], energy[i, prevj+1]] # options value added to seam are [value(above_left), value(above), value(above_right)]
 
@@ -185,7 +183,7 @@ if numArgs == 3:
         currentPGM = newPGM
         # The following print command may not work on computers with Python v3.X.
         # It is not essential to the program operation, so feel free to comment it out if the program is not working on a system with python 3.
-        print str(int(round((float(vCount)/total)*100, 0))) + "%\r", # display percentage. Apparently in python 3 this bit with the comma might not work.
+        #print(str(int(round((float(vCount)/total)*100, 0))) + "%\r",) # display percentage. Apparently in python 3 this bit with the comma might not work.
 
     currentPGM = numpy.transpose(currentPGM) # for horizonal seam removal we just transpose the PGM matrix, process it as if it were a vertical removal, and transpose it back.
     for hCount in range(hRemove):
@@ -194,11 +192,11 @@ if numArgs == 3:
         currentPGM = newPGM
         # The following print command may not work on computers with Python v3.X.
         # It is not essential to the program operation, so feel free to comment it out if the program is not working on a system with python 3.
-        print str(int(round((float(hCount+1+vRemove)/total)*100, 0))) + "%\r", # same thing - might not work in python 3.
+        #print(str(int(round((float(hCount+1+vRemove)/total)*100, 0))) + "%\r",) # same thing - might not work in python 3.
     currentPGM = numpy.transpose(currentPGM) # works even if we didn't do any horizontals because we have now transposed it twice.
 
     hei, wid = currentPGM.shape[0], currentPGM.shape[1] # we need to pass the size of the new pgm into the ..._processed.pgm file 
     makeNewPGM(newFilename, hei, wid, white, currentPGM) # do it
 
 else:
-    print "Error: Need three inputs (filename, numVerticalSeams, numHorizontalSeams)"
+    print("Error: Need three inputs (filename, numVerticalSeams, numHorizontalSeams)")
