@@ -11,7 +11,7 @@ Feel free to use as you please. Pull requests welcome.
 
 #Requirements	
 * [NumPy](http://www.numpy.org/)
-	* This programs uses the NumPy library to handle 2d arrays, so NumPy *must* be installed on the running computer. (SciPy is not needed)
+	* NumPy is used to handle 2d arrays, so NumPy *must* be installed on the running computer. (SciPy is not needed)
 
 #Operation
 
