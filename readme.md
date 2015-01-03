@@ -30,7 +30,7 @@ A percentage of completion is shown on the command line for your convenience and
 #Notes/Limitations
 
 * This currently only works with black & white PGM files.
-* It some time on large PGM files. Analysis shows this is mainly due to having to go through the full 2d array (thanks dynamic programming) and the abs() function.
+* Large PGM files take some time to process. Analysis shows this is mainly due to having to go through the full 2d array (thanks dynamic programming) and the abs() function.
 * The filename can contain path characters (e.g. the full command can be "seamCarv.py ..\..\pictures\myPGMFiles\cosmo.pgm 10 20")
 *  When the program selects the minimum pixel energy, part of this operation involves the min() function. 
 	* On ties, min() selects the item with the lowest index. 
