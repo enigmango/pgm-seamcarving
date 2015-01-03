@@ -17,14 +17,14 @@ Feel free to use as you please. Pull requests welcome.
 
 `python ./seamCarv.py path/to/file V H`
 
-...Where *V* is the number of vertical seams to remove, and *H* is the number of horizontal seams to remove.
+...Where *V* is the number of vertical seams to remove (reducing width), and *H* is the number of horizontal seams to remove (reducing height).
 
 The new PGM file will be saved as (oldfilename)_processed.pgm in the same directory as the original file.
 
 A percentage of completion is shown on the command line for your convenience and peace of mind.
 
 ##Example
-`./seamcarv.py cosmo.pgm 100 50` on a 1000x1000 image named `cosmo.pgm` will save a 900x950 image named `cosmo_processed.pgm`.
+`./seamcarv.py cosmo.pgm 100 50` on an image 1000x1000 (width x height) named `cosmo.pgm` will save a 900x950 image named `cosmo_processed.pgm`.
 
 
 #Notes/Limitations
