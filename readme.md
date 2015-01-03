@@ -15,7 +15,7 @@ Feel free to use as you please. Pull requests welcome.
 
 #Operation
 
-`python ./seamCarv.py *path/to/file* *V* *H*`
+`python ./seamCarv.py path/to/file V H`
 
 ...Where *V* is the number of vertical seams to remove, and *H* is the number of horizontal seams to remove.
 
