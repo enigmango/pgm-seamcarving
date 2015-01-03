@@ -36,3 +36,4 @@ A percentage of completion is shown on the command line for your convenience and
 	* On ties, min() selects the item with the lowest index. 
 	* This may result in slightly different seams selected than programs in different languages, or even in python with a different min energy selection method.
 * I watched *so much* Seinfeld while writing this program
+* Two (public domain) images have been included in tis repo, with examples of vertical and horizontal resizing for both.
