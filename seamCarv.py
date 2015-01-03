@@ -183,7 +183,7 @@ if numArgs == 3:
         currentPGM = newPGM
         # The following print command may not work on computers with Python v3.X.
         # It is not essential to the program operation, so feel free to comment it out if the program is not working on a system with python 3.
-        #print(str(int(round((float(vCount)/total)*100, 0))) + "%\r",) # display percentage. Apparently in python 3 this bit with the comma might not work.
+        print(str(int(round((float(vCount)/total)*100, 0))) + "%\r", end='') # display percentage. Apparently in python 3 this bit with the comma might not work.
 
     currentPGM = numpy.transpose(currentPGM) # for horizonal seam removal we just transpose the PGM matrix, process it as if it were a vertical removal, and transpose it back.
     for hCount in range(hRemove):
@@ -192,7 +192,7 @@ if numArgs == 3:
         currentPGM = newPGM
         # The following print command may not work on computers with Python v3.X.
         # It is not essential to the program operation, so feel free to comment it out if the program is not working on a system with python 3.
-        #print(str(int(round((float(hCount+1+vRemove)/total)*100, 0))) + "%\r",) # same thing - might not work in python 3.
+        print(str(int(round((float(hCount+1+vRemove)/total)*100, 0))) + "%\r", end='') # same thing - might not work in python 3.
     currentPGM = numpy.transpose(currentPGM) # works even if we didn't do any horizontals because we have now transposed it twice.
 
     hei, wid = currentPGM.shape[0], currentPGM.shape[1] # we need to pass the size of the new pgm into the ..._processed.pgm file 
