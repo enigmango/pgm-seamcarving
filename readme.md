@@ -1,6 +1,6 @@
 # Description
 
-This is an image resizing program written in Python. The original program was written for a seam carving project as part of an algorithms class at the University of Akron. 
+This is a PGM image resizing program written in Python. The original program was written for a seam carving project as part of an algorithms class at the University of Akron. 
 It uses the [seam carving](http://en.wikipedia.org/wiki/Seam_carving) algorithm to resize with minimal distortion.
 
 Tested and working with Python 3.4.2 on ArchLinux.
@@ -11,20 +11,20 @@ Feel free to use as you please. Pull requests welcome.
 
 #Requirements	
 * [NumPy](http://www.numpy.org/)
-	* This programs uses the NumPy library to handle 2d arrays, so NumPy *must* be installed on the running computer. (SciPy is not needed)
+	* NumPy is used to handle 2d arrays, so NumPy *must* be installed on the running computer. (SciPy is not needed)
 
 #Operation
 
 `python ./seamCarv.py path/to/file V H`
 
-...Where *V* is the number of vertical seams to remove, and *H* is the number of horizontal seams to remove.
+...Where *V* is the number of vertical seams to remove (reducing width), and *H* is the number of horizontal seams to remove (reducing height).
 
 The new PGM file will be saved as (oldfilename)_processed.pgm in the same directory as the original file.
 
 A percentage of completion is shown on the command line for your convenience and peace of mind.
 
 ##Example
-`./seamcarv.py cosmo.pgm 100 50` on a 1000x1000 image named `cosmo.pgm` will save a 900x950 image named `cosmo_processed.pgm`.
+`./seamcarv.py cosmo.pgm 100 50` on an image 1000x1000 (width x height) named `cosmo.pgm` will save a 900x950 image named `cosmo_processed.pgm`.
 
 
 #Notes/Limitations
@@ -36,4 +36,4 @@ A percentage of completion is shown on the command line for your convenience and
 	* On ties, min() selects the item with the lowest index. 
 	* This may result in slightly different seams selected than programs in different languages, or even in python with a different min energy selection method.
 * I watched *so much* Seinfeld while writing this program
-* Two (public domain) images have been included in tis repo, with examples of vertical and horizontal resizing for both.
+* Two (public domain) images have been included, with examples of vertical and horizontal resizing for both.
