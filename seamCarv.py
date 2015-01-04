@@ -181,8 +181,6 @@ if numArgs == 3:
         seamCoordinates = calcSeam(currentPGM) # returns array of coordinates of pixels in seam
         newPGM = removeSeam(currentPGM, seamCoordinates) # new data for PGM
         currentPGM = newPGM
-        # The following print command may not work on computers with Python v3.X.
-        # It is not essential to the program operation, so feel free to comment it out if the program is not working on a system with python 3.
         print(str(int(round((float(vCount)/total)*100, 0))) + "%\r", end='') # display percentage. Apparently in python 3 this bit with the comma might not work.
 
     currentPGM = numpy.transpose(currentPGM) # for horizonal seam removal we just transpose the PGM matrix, process it as if it were a vertical removal, and transpose it back.
@@ -190,8 +188,6 @@ if numArgs == 3:
         seamCoordinates = calcSeam(currentPGM) # returns array of coordinates of pixels in seam
         newPGM = removeSeam(currentPGM, seamCoordinates) # new data for PGM
         currentPGM = newPGM
-        # The following print command may not work on computers with Python v3.X.
-        # It is not essential to the program operation, so feel free to comment it out if the program is not working on a system with python 3.
         print(str(int(round((float(hCount+1+vRemove)/total)*100, 0))) + "%\r", end='') # same thing - might not work in python 3.
     currentPGM = numpy.transpose(currentPGM) # works even if we didn't do any horizontals because we have now transposed it twice.
 
